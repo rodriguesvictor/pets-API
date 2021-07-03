@@ -8,6 +8,9 @@ import one.digital.innovation.petapi.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class PetService {
 
@@ -32,4 +35,10 @@ public class PetService {
     }
 
 
+    public List<PetDTO> listAll() {
+        List<Pet> allPets = petRepository.findAll();
+        return allPets.stream()
+                .map(petMapper::toDTO)
+                .collect(Collectors.toList());
+    }
 }

@@ -38,9 +38,14 @@ public class PetController {
         return petService.findById(id);
     }
 
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById (@PathVariable Long id, @RequestBody @Valid PetDTO petDTO) throws PetNotFoundException {
+        return petService.updateById(id, petDTO);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById (@PathVariable Long id) throws PetNotFoundException {
+    public void deleteById(@PathVariable Long id) throws PetNotFoundException {
     petService.deletePet(id);
     }
 }

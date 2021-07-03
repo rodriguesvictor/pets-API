@@ -45,9 +45,18 @@ public class PetService {
     }
 
     public PetDTO findById(Long id) throws PetNotFoundException {
-        Pet pet = petRepository.findById(id)
-                .orElseThrow(() -> new PetNotFoundException(id));
+        Pet pet = verifyIfExists(id);
 
         return petMapper.toDTO(pet);
+    }
+
+    public void deletePet(Long id) throws PetNotFoundException {
+        verifyIfExists(id);
+        petRepository.deleteById(id);
+    }
+
+    private Pet verifyIfExists (Long id) throws PetNotFoundException {
+        return petRepository.findById(id)
+                .orElseThrow(() -> new PetNotFoundException(id));
     }
 }

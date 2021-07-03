@@ -2,6 +2,7 @@ package one.digital.innovation.petapi.controller;
 
 import one.digital.innovation.petapi.dto.request.PetDTO;
 import one.digital.innovation.petapi.dto.response.MessageResponseDTO;
+import one.digital.innovation.petapi.exception.PetNotFoundException;
 import one.digital.innovation.petapi.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,5 +31,10 @@ public class PetController {
     @GetMapping
     public List<PetDTO> listAll(){
         return petService.listAll();
+    }
+
+    @GetMapping("/{id}")
+    public PetDTO findById(@PathVariable Long id) throws PetNotFoundException {
+        return petService.findById(id);
     }
 }

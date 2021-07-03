@@ -1,4 +1,4 @@
-package one.digital.innovation.petapi.dto;
+package one.digital.innovation.petapi.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

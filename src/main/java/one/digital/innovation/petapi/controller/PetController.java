@@ -1,11 +1,13 @@
 package one.digital.innovation.petapi.controller;
 
-import one.digital.innovation.petapi.dto.MessageResponseDTO;
-import one.digital.innovation.petapi.entity.Pet;
+import one.digital.innovation.petapi.dto.request.PetDTO;
+import one.digital.innovation.petapi.dto.response.MessageResponseDTO;
 import one.digital.innovation.petapi.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/pet")
@@ -20,7 +22,7 @@ public class PetController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createPet(@RequestBody Pet pet){
-        return petService.createPet(pet);
+    public MessageResponseDTO createPet(@RequestBody @Valid PetDTO petDTO){
+        return petService.createPet(petDTO);
     }
 }

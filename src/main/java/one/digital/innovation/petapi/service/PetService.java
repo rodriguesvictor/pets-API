@@ -1,5 +1,6 @@
 package one.digital.innovation.petapi.service;
 
+import lombok.AllArgsConstructor;
 import one.digital.innovation.petapi.dto.request.PetDTO;
 import one.digital.innovation.petapi.dto.response.MessageResponseDTO;
 import one.digital.innovation.petapi.entity.Pet;
@@ -14,16 +15,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PetService {
 
     private PetRepository petRepository;
 
     private final PetMapper petMapper = PetMapper.INSTANCE;
-
-    @Autowired
-    public PetService(PetRepository petRepository) {
-        this.petRepository = petRepository;
-    }
 
     public MessageResponseDTO createPet(PetDTO petDTO){
 

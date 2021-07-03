@@ -1,5 +1,6 @@
 package one.digital.innovation.petapi.controller;
 
+import lombok.AllArgsConstructor;
 import one.digital.innovation.petapi.dto.request.PetDTO;
 import one.digital.innovation.petapi.dto.response.MessageResponseDTO;
 import one.digital.innovation.petapi.exception.PetNotFoundException;
@@ -13,14 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/pet")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PetController {
 
     private PetService petService;
-
-    @Autowired
-    public PetController(PetService petService) {
-        this.petService = petService;
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

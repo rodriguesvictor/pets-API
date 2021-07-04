@@ -34,3 +34,77 @@ São necessários os seguintes pré-requisitos para a execução do projeto:
     * Controle de versão GIT instalado na sua máquina.
     * Conta no GitHub para o armazenamento do seu projeto na nuvem.
     * Conta no Heroku para o deploy do projeto na nuvem
+
+### API Disponível para uso, Hospedada no Heroku
+
+Para Utilizar a API acesse:
+
+http://petapi-live.herokuapp.com/api/v1/pet
+
+Utilizei o Postman para verificar as operações criadas(GET inserindo com JSON, POST, PUT e DELETE):
+
+Alguns exemplos abaixo:
+
+*CreatePet:
+
+URL:
+http://petapi-live.herokuapp.com/api/v1/pet
+
+JSON:
+{
+"id": 2,
+"firstName": "Lucky",
+"breed": "PitBull",
+"rga": "11997",
+"birthDate":"24-04-1999",
+"phones": [
+{
+"id": 2,
+"type":"MOBILE",
+"number":"(81)989597576"
+}
+]
+}
+
+*ListPet:
+
+URL:
+http://petapi-live.herokuapp.com/api/v1/pet
+
+*GetPetById:
+
+URL:
+http://petapi-live.herokuapp.com/api/v1/pet/id_do_pet
+
+*DeletePetById:
+
+URL:
+http://petapi-live.herokuapp.com/api/v1/pet/id_do_pet
+
+*UpdatePetById:
+
+URL:
+http://petapi-live.herokuapp.com/api/v1/pet/id_do_pet
+
+JSON:
+{
+"id": 2,
+"firstName": "Lucky",
+"breed": "PitBull",
+"rga": "11997",
+"birthDate":"24-04-1999",
+"phones": [
+{
+"id": 2,
+"type":"MOBILE",
+"number":"(81)989597576"
+}
+]
+}
+
+
+
+
+
+
+

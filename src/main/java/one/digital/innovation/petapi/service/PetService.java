@@ -27,7 +27,7 @@ public class PetService {
         Pet petToSave = petMapper.toModel(petDTO);
 
         Pet savedPet = petRepository.save(petToSave);
-        return createMessageResponse(savedPet.getId(), "Created pet with ID ");
+        return createMessageResponse(savedPet.getId(), "Created Pet with ID ");
     }
 
 
@@ -54,7 +54,7 @@ public class PetService {
         Pet petToUpdate = petMapper.toModel(petDTO);
 
         Pet updatedPet = petRepository.save(petToUpdate);
-        return createMessageResponse(updatedPet.getId(), "Updated pet with ID ");
+        return createMessageResponse(updatedPet.getId(), "Updated Pet with ID ");
     }
 
     private Pet verifyIfExists (Long id) throws PetNotFoundException {
